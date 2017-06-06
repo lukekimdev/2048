@@ -36,6 +36,10 @@
 {
   [super viewDidLoad];
   
+  NSArray *eventNames = @[@"loaded", @"start-game", @"end-game", @"restarted-game"];
+  
+  [MSAnalytics trackEvent:[eventNames objectAtIndex:4]];
+  
   [self updateState];
   
   _bestView.score.text = [NSString stringWithFormat:@"%ld", (long)[Settings integerForKey:@"Best Score"]];
@@ -64,7 +68,7 @@
   _scene = scene;
   _scene.controller = self;
   
-  [MSAnalytics trackEvent:@"start-game"];
+  [MSAnalytics trackEvent:[eventNames objectAtIndex:1]];
 }
 
 
