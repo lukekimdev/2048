@@ -104,8 +104,6 @@
   _overlay.message.textColor = [GSTATE buttonColor];
   [_overlay.keepPlaying setTitleColor:[GSTATE buttonColor] forState:UIControlStateNormal];
   [_overlay.restartGame setTitleColor:[GSTATE buttonColor] forState:UIControlStateNormal];
-    
-  [self updateState];
 }
 
 
