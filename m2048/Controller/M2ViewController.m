@@ -6,6 +6,9 @@
 //  Copyright (c) 2014 Danqing. All rights reserved.
 //
 
+@import MobileCenter;
+@import MobileCenterAnalytics;
+
 #import "M2ViewController.h"
 #import "M2SettingsViewController.h"
 
@@ -60,6 +63,8 @@
   
   _scene = scene;
   _scene.controller = self;
+  
+  [MSAnalytics trackEvent:@"start-game"];
 }
 
 
@@ -126,6 +131,8 @@
   [self hideOverlay];
   [self updateScore:0];
   [_scene startNewGame];
+  
+  [MSAnalytics trackEvent:@"start-game"];
 }
 
 
@@ -177,6 +184,8 @@
     // Freeze the current game.
     ((SKView *)self.view).paused = YES;
   }];
+  
+  [MSAnalytics trackEvent:@"end-game"];
 }
 
 
