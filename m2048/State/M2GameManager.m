@@ -6,6 +6,9 @@
 //  Copyright (c) 2014 Danqing. All rights reserved.
 //
 
+@import MobileCenter;
+@import MobileCenterAnalytics;
+
 #import "M2GameManager.h"
 #import "M2Grid.h"
 #import "M2Tile.h"
@@ -92,8 +95,15 @@ BOOL iterate(NSInteger value, BOOL countUp, NSInteger upper, NSInteger lower) {
   // Remember that the coordinate system of SpriteKit is the reverse of that of UIKit.
   BOOL reverse = direction == M2DirectionUp || direction == M2DirectionRight;
   NSInteger unit = reverse ? 1 : -1;
+  NSString * directionText = NULL;
   
   if (direction == M2DirectionUp || direction == M2DirectionDown) {
+    if (direction == M2DirectionUp) {
+      directionText = @"up";
+    } else {
+      directionText = @"down";
+    }
+    
     [_grid forEach:^(M2Position position) {
       if ((tile = [_grid tileAtPosition:position])) {
         // Find farthest position to move to.
@@ -137,6 +147,12 @@ BOOL iterate(NSInteger value, BOOL countUp, NSInteger upper, NSInteger lower) {
   }
   
   else {
+    if (direction == M2DirectionLeft) {
+      directionText = @"left";
+    } else {
+      directionText = @"right";
+    }
+    
     [_grid forEach:^(M2Position position) {
       if ((tile = [_grid tileAtPosition:position])) {
         NSInteger target = position.y;
@@ -175,6 +191,9 @@ BOOL iterate(NSInteger value, BOOL countUp, NSInteger upper, NSInteger lower) {
       }
     } reverseOrder:reverse];
   }
+  
+  NSDictionary *properties = @{@"direction" : directionText};
+  [MSAnalytics trackEvent:@"move" withProperties: properties];
   
   // Cannot move to the given direction. Abort.
   if (!_pendingScore) return;

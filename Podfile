@@ -7,6 +7,8 @@ target 'm2048' do
 
   # Pods for m2048
   pod 'MobileCenter'
+  pod 'MobileCenter/MobileCenterDistribute'
+  pod 'MobileCenter/MobileCenterPush'
 
   target 'm2048Tests' do
     inherit! :search_paths

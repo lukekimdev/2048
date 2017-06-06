@@ -7,13 +7,19 @@ PODS:
     - MobileCenter/MobileCenter
   - MobileCenter/MobileCenterCrashes (0.9.0):
     - MobileCenter/MobileCenter
+  - MobileCenter/MobileCenterDistribute (0.9.0):
+    - MobileCenter/MobileCenter
+  - MobileCenter/MobileCenterPush (0.9.0):
+    - MobileCenter/MobileCenter
 
 DEPENDENCIES:
   - MobileCenter
+  - MobileCenter/MobileCenterDistribute
+  - MobileCenter/MobileCenterPush
 
 SPEC CHECKSUMS:
   MobileCenter: dd301af71dbe0c4e3fe1d7e3368d0c38d7ea9e4e
 
-PODFILE CHECKSUM: 136941508792231fc4ec1b55d2476b97d49e069e
+PODFILE CHECKSUM: 0005e48bbaae72ff89a1b81e6b89bf5e884b2e4b
 
 COCOAPODS: 1.2.0
