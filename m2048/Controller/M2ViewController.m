@@ -38,7 +38,7 @@
   
   NSArray *eventNames = @[@"loaded", @"start-game", @"end-game", @"restarted-game"];
   
-  [MSAnalytics trackEvent:[eventNames objectAtIndex:4]];
+  [MSAnalytics trackEvent:[eventNames objectAtIndex:0]];
   
   [self updateState];
   
