@@ -6,12 +6,20 @@
 //  Copyright (c) 2014 Danqing. All rights reserved.
 //
 
+@import MobileCenter;
+@import MobileCenterAnalytics;
+@import MobileCenterCrashes;
+
 #import "M2AppDelegate.h"
 
 @implementation M2AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [MSMobileCenter start:@"ec1274cd-bdf5-4113-91ac-ba9629bd66d6" withServices:@[
+                                                                                 [MSAnalytics class],
+                                                                                 [MSCrashes class]
+                                                                                 ]];
   return YES;
 }
 
