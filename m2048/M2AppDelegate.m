@@ -9,6 +9,7 @@
 @import MobileCenter;
 @import MobileCenterAnalytics;
 @import MobileCenterCrashes;
+@import MobileCenterPush;
 
 #import "M2AppDelegate.h"
 
@@ -18,7 +19,8 @@
 {
     [MSMobileCenter start:@"ec1274cd-bdf5-4113-91ac-ba9629bd66d6" withServices:@[
                                                                                  [MSAnalytics class],
-                                                                                 [MSCrashes class]
+                                                                                 [MSCrashes class],
+                                                                                 [MSPush class]
                                                                                  ]];
   return YES;
 }
